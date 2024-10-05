@@ -31,10 +31,10 @@ def compute_acceleration(object, object_other):
     dy = object_other.y - object.y
     distance = math.sqrt(dx**2 + dy**2 + SOFTENING_FACTOR**2)
     
-    if distance == 0:  # Avoid division by zero
+    if distance == 0:
         return 0, 0
     
-    # Gravitational force magnitude (ignoring constant)
+    # Gravitational force magnitude
     force = ACCELERATION_SCALE * (object.mass * object_other.mass) / distance**2
     force_x = force * (dx / distance)
     force_y = force * (dy / distance)
@@ -107,9 +107,9 @@ def calculate_gravitational_pull(x, y, objects, softening_factor=0.01):
     for obj in objects:
         dx = obj.x - x
         dy = obj.y - y
-        distance = math.sqrt(dx**2 + dy**2)  # Softening factor to avoid singularity
+        distance = math.sqrt(dx**2 + dy**2)
         
-        # Gravitational acceleration (ignoring the constant G)
+        # Gravitational acceleration
         acc = 50*obj.mass / (distance**2)
         total_acc_x += acc * (dx / distance)
         total_acc_y += acc * (dy / distance)
@@ -120,16 +120,12 @@ def draw_gravitational_map(screen, objects, grid_spacing=15):
     """Draws the gravitational map with lines showing the direction and magnitude of gravity."""
     screen_width, screen_height = screen.get_size()
     
-    # Loop over grid points spaced by `grid_spacing`
     for x in range(0, screen_width, grid_spacing):
         for y in range(0, screen_height, grid_spacing):
             acc_x, acc_y = calculate_gravitational_pull(x, y, objects)
             
             # Calculate the magnitude of the acceleration
             magnitude = math.sqrt(acc_x**2 + acc_y**2)
-            
-            if magnitude == 0:
-                continue  # Skip points with no pull
             
             # Normalize the acceleration vector
             norm_acc_x = acc_x / magnitude

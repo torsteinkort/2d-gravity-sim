@@ -65,9 +65,9 @@ def initialise_state():
     state.objects = []
 
     # set objects
-    state.objects.append(Object(mass=100, radius=20, color=(153, 102, 0), x=SCREEN_WIDTH/2, y=SCREEN_HEIGHT/2, velocity_x=0, velocity_y=0, stationary=True))
-    state.objects.append(Object(mass=10, radius=10, color=(100, 100, 200), x=SCREEN_WIDTH/2 - 250, y=SCREEN_HEIGHT/2, velocity_x=0, velocity_y=-220, stationary=False))
-    state.objects.append(Object(mass=0.1, radius=3, color=(100, 100, 200), x=SCREEN_WIDTH/2 - 290, y=SCREEN_HEIGHT/2, velocity_x=0, velocity_y=-390, stationary=False))
+    state.objects.append(Object(mass=100, radius=35, color=(153, 102, 0), x=SCREEN_WIDTH/2, y=SCREEN_HEIGHT/2, velocity_x=0, velocity_y=0, stationary=True))
+    state.objects.append(Object(mass=10, radius=15, color=(100, 100, 200), x=SCREEN_WIDTH/2 - 250, y=SCREEN_HEIGHT/2, velocity_x=0, velocity_y=-210, stationary=False))
+    state.objects.append(Object(mass=0.1, radius=5, color=(100, 100, 200), x=SCREEN_WIDTH/2 - 290, y=SCREEN_HEIGHT/2, velocity_x=0, velocity_y=-370, stationary=False))
     # state.objects.append(Object(mass=50, radius=15, color=(153, 152, 0), x=SCREEN_WIDTH/2 + 100, y=SCREEN_HEIGHT/2, velocity_x=0, velocity_y=250, stationary=True))
     # state.objects.append(Object(mass=1, radius=7, color=(100, 100, 200), x=SCREEN_WIDTH/4, y=SCREEN_HEIGHT/2, velocity_x=0, velocity_y=-180))
     # state.objects.append(Object(mass=1, radius=7, color=(100, 100, 200), x=SCREEN_WIDTH/4 + 50, y=SCREEN_HEIGHT/2, velocity_x=0, velocity_y=-150))

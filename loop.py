@@ -139,7 +139,7 @@ def draw_gravitational_map(screen, objects, grid_spacing=15):
             end_y = y + norm_acc_y * line_length
             
             # Draw the line representing the gravitational force direction and magnitude
-            pygame.draw.line(screen, (100, 100, 100), (x, y), (end_x, end_y), 1)
+            pygame.draw.aaline(screen, (100, 100, 100), (x, y), (end_x, end_y), 1)
 
 # Constants for new objects
 NEW_OBJECT_MASS = 1
@@ -191,7 +191,7 @@ def draw_drag_line(screen, state):
     if state.dragging_object:
         start_pos = state.dragging_object["start_pos"]
         current_pos = state.dragging_object["current_pos"]
-        pygame.draw.line(screen, (255, 255, 255), start_pos, current_pos, 2)
+        pygame.draw.aaline(screen, (255, 255, 255), start_pos, current_pos, 2)
 
 # Loop function
 def loop(screen, state):
